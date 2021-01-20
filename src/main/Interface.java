@@ -1,4 +1,4 @@
-package src;
+package src.main;
 
 public class Interface {
 
@@ -10,15 +10,23 @@ public class Interface {
         return newStudentRecord;
     }
 
-    public void addTerm(String name) {
-        Term newTerm = new Term(name);
+    public Term newTerm(String termName) {
+        Term newTerm = new Term(termName);
         sr.addTerm(newTerm);
+        return newTerm;
     }
     
-    public void addCourse(String title, String term) {
+    public Course addCourse(String title, String term) {
         Course newCourse = new Course(title);
         // Need to be able to fetch term. Then use term.addCourse(newCourse)
-        sr.getTerm(term).addCourse(newCourse);
+        Term targetTerm = sr.getTerm(term);
+        if (targetTerm == null) {
+            System.out.println("Term does not exist. Course not added");
+            return null;
+        } else {
+            targetTerm.addCourse(newCourse);
+            return newCourse;
+        }
     }
     
     public void addAssessment(String name, int weighting, int marksPossible,
@@ -29,7 +37,6 @@ public class Interface {
         newAssessment.setmarksAchieved(marksAchieved);
     }
 
-    public void getTermWAM(int term) {
-
-    }
+    // public void getTermWAM(int term) {
+    // }
 }

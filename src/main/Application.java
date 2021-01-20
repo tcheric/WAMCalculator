@@ -1,4 +1,4 @@
-package src;
+package src.main;
 
 /**
  * The WAM Calculator program allows users to add their assessments, courses
@@ -9,5 +9,6 @@ package src;
 public class Application {
     public static void main(String[] args) {
         System.out.println("Hi");
+        Interface appInterface = new Interface();
     }
 }
