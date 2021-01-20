@@ -16,6 +16,7 @@ public class StudentRecord {
                 return t;
             }
         }
+        return null;
     }
     
     public void addTerm(Term t){
