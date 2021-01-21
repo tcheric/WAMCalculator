@@ -29,6 +29,7 @@ public class Interface {
         }
     }
     
+    // Does not fetch course on its own, needs course provided as param
     public Assessment addAssessment(Course c, String assName, float weighting, float marksPossible,
             float marksAchieved) {
         Assessment newAssessment = new Assessment(assName);
@@ -39,6 +40,25 @@ public class Interface {
         return newAssessment;
     }
 
-    // public void getTermWAM(float term) {
-    // }
+    public void printAssessments(Course c){
+        c.printAssessments();
+    }
+
+    // Prints overall WAM for a term, expected if not all assessments complete
+    public void getTermWAM(Term t) {
+    }
+
+    // Prints WAM for a course, expected if not all assessments complete
+    public void getCourseWAM(Course c) {
+        boolean allAssessmentsEntered = false;
+        boolean allMarksEntered = false;
+        for (Assessment a : c.getAssessments()){
+
+        }
+        // Check all assessments have a marksAchieved value - 
+        // If all assessments complete, print course WAM
+        // If not all assessments complete, print projected course WAM based
+        // only on assessments with marks achieved 
+        // If no assessments entered
+    }
 }

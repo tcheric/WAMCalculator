@@ -18,18 +18,22 @@ public class Course {
         assessments.add(a);
     }
 
-    //Prfloat all assessments and marks and weightings
-    private void printAssessments(){
+    //Print all assessments and marks and weightings
+    public void printAssessments(){
         for (Assessment a : assessments){
             String name = a.getName();
             float weighting = a.getWeighting();
             float marksPossible = a.getMarksPossible();
             float marksAchieved = a.getMarksAchieved();
-            System.out.printf("%s %d %d/%d", name, weighting, marksAchieved, marksPossible);
+            System.out.printf("%s -- Weighting:%.2f -- Marks:%.2f/%.2f", name, weighting, marksAchieved, marksPossible);
         }
     }
 
     //Getters and Setters
+    public ArrayList<Assessment> getAssessments(){
+        return assessments;
+    }
+    
     public float getMark(){
         return mark;
     }

@@ -19,6 +19,7 @@ public class ApplicationTest {
     Assessment finalExam = testInterface.addAssessment(comp1511, "Final Exam",
         50, 100, 70);
     // Use interface to print assessments in a course
+    testInterface.printAssessments(comp1511);
     // Use interface to get term WAM
     }
 }
