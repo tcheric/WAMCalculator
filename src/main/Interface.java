@@ -29,14 +29,16 @@ public class Interface {
         }
     }
     
-    public void addAssessment(String name, int weighting, int marksPossible,
-            int marksAchieved) {
-        Assessment newAssessment = new Assessment(name);
+    public Assessment addAssessment(Course c, String assName, float weighting, float marksPossible,
+            float marksAchieved) {
+        Assessment newAssessment = new Assessment(assName);
         newAssessment.setWeighting(weighting);
         newAssessment.setmarksPossible(marksPossible);
         newAssessment.setmarksAchieved(marksAchieved);
+        c.addAssessment(newAssessment);
+        return newAssessment;
     }
 
-    // public void getTermWAM(int term) {
+    // public void getTermWAM(float term) {
     // }
 }

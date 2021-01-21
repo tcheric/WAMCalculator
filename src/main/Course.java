@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Course {
     private String title;
-    private int mark;
+    private float mark;
     private ArrayList<Assessment> assessments;
 
     //Constructor
@@ -18,23 +18,23 @@ public class Course {
         assessments.add(a);
     }
 
-    //Print all assessments and marks and weightings
+    //Prfloat all assessments and marks and weightings
     private void printAssessments(){
         for (Assessment a : assessments){
             String name = a.getName();
-            int weighting = a.getWeighting();
-            int marksPossible = a.getMarksPossible();
-            int marksAchieved = a.getMarksAchieved();
+            float weighting = a.getWeighting();
+            float marksPossible = a.getMarksPossible();
+            float marksAchieved = a.getMarksAchieved();
             System.out.printf("%s %d %d/%d", name, weighting, marksAchieved, marksPossible);
         }
     }
 
     //Getters and Setters
-    public int getMark(){
+    public float getMark(){
         return mark;
     }
     
-    public void setMark(int mark){
+    public void setMark(float mark){
         this.mark = mark;
     }
 

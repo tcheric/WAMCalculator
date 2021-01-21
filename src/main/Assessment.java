@@ -2,9 +2,9 @@ package src.main;
 
 public class Assessment {
     private String name;
-    private int weighting;
-    private int marksPossible;
-    private int marksAchieved;
+    private float weighting;
+    private float marksPossible;
+    private float marksAchieved;
 
     // Constructor for name
     public Assessment(String name){
@@ -21,27 +21,27 @@ public class Assessment {
         this.name = name;
     }
 
-    public int getWeighting(){
+    public float getWeighting(){
         return weighting;
     }
     
-    public void setWeighting(int weighting){
+    public void setWeighting(float weighting){
         this.weighting = weighting;
     }
 
-    public int getMarksPossible(){
+    public float getMarksPossible(){
         return marksPossible;
     }
     
-    public void setmarksPossible(int marksPossible){
+    public void setmarksPossible(float marksPossible){
         this.marksPossible = marksPossible;
     }
 
-    public int getMarksAchieved(){
+    public float getMarksAchieved(){
         return marksAchieved;
     }
     
-    public void setmarksAchieved(int marksAchieved){
+    public void setmarksAchieved(float marksAchieved){
         this.marksAchieved = marksAchieved;
     }
 }
