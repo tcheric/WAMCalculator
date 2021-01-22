@@ -50,15 +50,16 @@ public class Interface {
 
     // Prints WAM for a course, expected if not all assessments complete
     public void getCourseWAM(Course c) {
-        boolean allAssessmentsEntered = false;
-        boolean allMarksEntered = false;
-        for (Assessment a : c.getAssessments()){
-
+        float[] resultsArray = c.getCourseWAM();
+        if (resultsArray[2] == 1) {
+            System.out.println("No assessments entered");
+        } else {
+            if (resultsArray[1] == 0){
+                System.out.print("The final mark is ");
+            } else if (resultsArray[1] == 1){
+                System.out.print("The projected mark is ");
+            }
+            System.out.println(resultsArray[0]);
         }
-        // Check all assessments have a marksAchieved value - 
-        // If all assessments complete, print course WAM
-        // If not all assessments complete, print projected course WAM based
-        // only on assessments with marks achieved 
-        // If no assessments entered
     }
 }

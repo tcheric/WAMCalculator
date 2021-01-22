@@ -1,6 +1,7 @@
 package src.test;
 
 import org.junit.jupiter.api.Test;
+
 import src.main.*;
 
 public class ApplicationTest {
@@ -18,8 +19,12 @@ public class ApplicationTest {
     // Use interface to add assessments to courses
     Assessment finalExam = testInterface.addAssessment(comp1511, "Final Exam",
         50, 100, 70);
+    Assessment labs = testInterface.addAssessment(comp1511, "Labs", 20, 40, 32);
+    Assessment midterm = testInterface.addAssessment(comp1511, "Midterm Exam",
+        30, 100, 90);
     // Use interface to print assessments in a course
     testInterface.printAssessments(comp1511);
     // Use interface to get term WAM
+    testInterface.getCourseWAM(comp1511);
     }
 }

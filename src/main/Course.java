@@ -13,6 +13,36 @@ public class Course {
         this.title = title;
     }
 
+    // Returns course WAM and assessment info in arraylist?
+    // result[0] = mark out of 100
+    // result[1] = final(0)/projected(1) marks
+    // result[2] = are assessments(0)/no assessments(1)
+    public float[] getCourseWAM(){
+        float[] result = new float[3];
+        result[0] = 0;
+        result[1] = 0;
+        result[2] = 1;
+
+        if (assessments == null){
+            return result;
+        }
+
+        result[2] = 0;
+        float totalWeighting = 0;
+        float totalMarksAchieved = 0;
+        for (Assessment a : assessments){
+            totalWeighting += a.getWeighting();
+            float assMark = 
+            a.getWeighting() * (a.getMarksAchieved() / a.getMarksPossible()); 
+            totalMarksAchieved += assMark;
+        }
+        if (totalWeighting != 100){
+            result[1] = 1;
+        }
+        result[0] = totalMarksAchieved;
+        return result;
+    }
+
     //Adds assessment to list
     public void addAssessment(Assessment a){
         assessments.add(a);
@@ -25,7 +55,7 @@ public class Course {
             float weighting = a.getWeighting();
             float marksPossible = a.getMarksPossible();
             float marksAchieved = a.getMarksAchieved();
-            System.out.printf("%s -- Weighting:%.2f -- Marks:%.2f/%.2f", name, weighting, marksAchieved, marksPossible);
+            System.out.printf("%s -- Weighting:%.2f -- Marks:%.2f/%.2f\n", name, weighting, marksAchieved, marksPossible);
         }
     }
 
