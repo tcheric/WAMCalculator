@@ -7,8 +7,12 @@ public class Assessment {
     private float marksAchieved;
 
     // Constructor for name
-    public Assessment(String name){
+    public Assessment(String name, float weighting, float marksPossible, 
+            float marksAchieved){
         this.name = name;
+        this.weighting = weighting;
+        this.marksPossible = marksPossible;
+        this.marksAchieved = marksAchieved;
     }
 
     // Getters and Setters

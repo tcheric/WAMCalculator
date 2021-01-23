@@ -16,6 +16,7 @@ public class StudentRecord {
                 return t;
             }
         }
+        System.out.println("Error: Term does not exist.");
         return null;
     }
     

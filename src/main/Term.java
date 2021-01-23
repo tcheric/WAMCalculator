@@ -44,8 +44,10 @@ public class Term {
         }
     }
 
-    public void addCourse(Course c){
-        courses.add(c);
+    public Course addCourse(String courseName){
+        Course newCourse = new Course(courseName);
+        courses.add(newCourse);
+        return newCourse;
     }
 
     // Getters and Setters

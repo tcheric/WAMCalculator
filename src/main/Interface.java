@@ -17,38 +17,18 @@ public class Interface {
     }
     
     public Course addCourse(String title, String term) {
-        Course newCourse = new Course(title);
-        // Need to be able to fetch term. Then use term.addCourse(newCourse)
         Term targetTerm = sr.getTerm(term);
         if (targetTerm == null) {
-            System.out.println("Term does not exist. Course not added");
             return null;
         } else {
-            targetTerm.addCourse(newCourse);
+            Course newCourse = targetTerm.addCourse(title);
             return newCourse;
         }
     }
     
-    // Does not fetch course on its own, needs course provided as param
     public Assessment addAssessment(Course c, String assName, float weighting, float marksPossible,
             float marksAchieved) {
-        if (weighting > 100){
-            System.out.println("Error: Weighting cannot be more than 100%");
-            return null;
-        }
-        if (marksAchieved > marksPossible){
-            System.out.println("Error: Marks achieved cannot be more than marks possible");
-            return null;
-        }
-        if ((weighting + c.getTotalWeighting()) > 100){
-            System.out.println("Error: Total marks in course cannot be more than 100");
-            return null;
-        }
-        Assessment newAssessment = new Assessment(assName);
-        newAssessment.setWeighting(weighting);
-        newAssessment.setmarksPossible(marksPossible);
-        newAssessment.setmarksAchieved(marksAchieved);
-        c.addAssessment(newAssessment);
+        Assessment newAssessment = c.addAssessment(assName, weighting, marksPossible, marksAchieved);
         return newAssessment;
     }
 
@@ -60,13 +40,13 @@ public class Interface {
         t.printCourses();
     }
 
-    // Prints overall WAM for a term, expected if not all assessments complete
+    // Prints overall WAM for a term
     public void getTermWAM(Term t) {
         float[] resultsArray = t.getTermWAM();
         System.out.printf("The term WAM for %s is %f\n", t.getName(), resultsArray[0]);
     }
 
-    // Prints WAM for a course, expected if not all assessments complete
+    // Prints WAM for a course, projected if not all assessments complete
     public void getCourseWAM(Course c) {
         float[] resultsArray = c.getCourseWAM();
         if (resultsArray[2] == 1) {

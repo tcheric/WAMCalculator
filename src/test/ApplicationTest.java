@@ -16,6 +16,8 @@ public class ApplicationTest {
     // Use interface to add courses to term
     Course comp1511 = testInterface.addCourse("COMP1511", "21T1");
     Course math1131 = testInterface.addCourse("MATH1131", "21T1");
+    // Attempt to add course to term that doesn't exist
+    testInterface.addCourse("COMP2521", "22T1");
     // Use interface to add assessments to courses
     testInterface.addAssessment(comp1511, "Final Exam", 50, 100, 70);
     testInterface.addAssessment(comp1511, "Labs", 20, 40, 32);

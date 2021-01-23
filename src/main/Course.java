@@ -56,8 +56,24 @@ public class Course {
     }
 
     //Adds assessment to list
-    public void addAssessment(Assessment a){
-        assessments.add(a);
+    public Assessment addAssessment(String assName, float weighting, float marksPossible,
+    float marksAchieved){
+        if (weighting > 100){
+            System.out.println("Error: Weighting cannot be more than 100%");
+            return null;
+        }
+        if (marksAchieved > marksPossible){
+            System.out.println("Error: Marks achieved cannot be more than marks possible");
+            return null;
+        }
+        if ((weighting + getTotalWeighting()) > 100){
+            System.out.println("Error: Total marks in course cannot be more than 100");
+            return null;
+        }
+        Assessment newAssessment = new Assessment(assName, weighting, 
+                marksPossible, marksAchieved);
+        assessments.add(newAssessment);
+        return newAssessment;
     }
 
     //Print all assessments and marks and weightings
