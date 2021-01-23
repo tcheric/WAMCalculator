@@ -33,15 +33,15 @@ public class Interface {
     public Assessment addAssessment(Course c, String assName, float weighting, float marksPossible,
             float marksAchieved) {
         if (weighting > 100){
-            System.out.println("Weighting cannot be more than 100%");
+            System.out.println("Error: Weighting cannot be more than 100%");
             return null;
         }
         if (marksAchieved > marksPossible){
-            System.out.println("Marks achieved cannot be more than marks possible");
+            System.out.println("Error: Marks achieved cannot be more than marks possible");
             return null;
         }
         if ((weighting + c.getTotalWeighting()) > 100){
-            System.out.println("Total marks in course cannot be more than 100");
+            System.out.println("Error: Total marks in course cannot be more than 100");
             return null;
         }
         Assessment newAssessment = new Assessment(assName);
@@ -56,8 +56,14 @@ public class Interface {
         c.printAssessments();
     }
 
+    public void printCourses(Term t){
+        t.printCourses();
+    }
+
     // Prints overall WAM for a term, expected if not all assessments complete
     public void getTermWAM(Term t) {
+        float[] resultsArray = t.getTermWAM();
+        System.out.printf("The term WAM for %s is %f\n", t.getName(), resultsArray[0]);
     }
 
     // Prints WAM for a course, expected if not all assessments complete
@@ -67,9 +73,9 @@ public class Interface {
             System.out.println("No assessments entered");
         } else {
             if (resultsArray[1] == 0){
-                System.out.print("The final mark is ");
+                System.out.printf("The final mark for %s is ", c.getTitle());
             } else if (resultsArray[1] == 1){
-                System.out.print("The projected mark is ");
+                System.out.printf("The projected mark for %s is ", c.getTitle());
             }
             System.out.println(resultsArray[0]);
         }

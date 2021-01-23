@@ -62,6 +62,7 @@ public class Course {
 
     //Print all assessments and marks and weightings
     public void printAssessments(){
+        System.out.printf("Assessments in %s:\n", title);
         for (Assessment a : assessments){
             String name = a.getName();
             float weighting = a.getWeighting();

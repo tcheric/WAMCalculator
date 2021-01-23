@@ -29,11 +29,15 @@ public class ApplicationTest {
     testInterface.addAssessment(math1131, "Test", 41, 100, 98);
     // Use interface to print assessments in comp1511
     testInterface.printAssessments(comp1511);
-    // Use interface to get final term WAM
+    // Use interface to get final course WAM
     testInterface.getCourseWAM(comp1511);
     // Use interface to print assessments in math1131
     testInterface.printAssessments(math1131);
-    // Use interface to get projected term WAM
+    // Use interface to get projected course WAM
     testInterface.getCourseWAM(math1131);
+    // Use interface to print courses in term
+    testInterface.printCourses(newTerm);
+    // Use interface to get term WAM
+    testInterface.getTermWAM(newTerm);
     }
 }
