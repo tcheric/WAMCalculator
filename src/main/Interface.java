@@ -32,6 +32,18 @@ public class Interface {
     // Does not fetch course on its own, needs course provided as param
     public Assessment addAssessment(Course c, String assName, float weighting, float marksPossible,
             float marksAchieved) {
+        if (weighting > 100){
+            System.out.println("Weighting cannot be more than 100%");
+            return null;
+        }
+        if (marksAchieved > marksPossible){
+            System.out.println("Marks achieved cannot be more than marks possible");
+            return null;
+        }
+        if ((weighting + c.getTotalWeighting()) > 100){
+            System.out.println("Total marks in course cannot be more than 100");
+            return null;
+        }
         Assessment newAssessment = new Assessment(assName);
         newAssessment.setWeighting(weighting);
         newAssessment.setmarksPossible(marksPossible);

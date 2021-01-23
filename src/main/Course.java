@@ -36,11 +36,23 @@ public class Course {
             a.getWeighting() * (a.getMarksAchieved() / a.getMarksPossible()); 
             totalMarksAchieved += assMark;
         }
+        // Projected marks case
         if (totalWeighting != 100){
             result[1] = 1;
+            result[0] = totalMarksAchieved * 100 / totalWeighting;
+        // Final marks case
+        } else {
+            result[0] = totalMarksAchieved;
         }
-        result[0] = totalMarksAchieved;
         return result;
+    }
+
+    public float getTotalWeighting(){
+        float totalWeighting = 0;
+        for (Assessment a : assessments){
+            totalWeighting += a.getWeighting();
+        }
+        return totalWeighting;
     }
 
     //Adds assessment to list
