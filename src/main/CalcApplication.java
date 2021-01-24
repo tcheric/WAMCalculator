@@ -14,7 +14,7 @@ public class CalcApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("WAM Calculator");
-        
+        primaryStage.show();
     }
     public static void main(String[] args) {
         launch(args);
