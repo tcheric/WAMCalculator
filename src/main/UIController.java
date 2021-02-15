@@ -33,42 +33,19 @@ public class UIController {
     @FXML
     public void handleTerm1(ActionEvent event) throws IOException {
         System.out.println("Term 1 pressed");
-        // // Pane view = getTermPage("term1");
-        // Pane view = FXMLLoader.load(getClass().getResource("fxml/term1.fxml"));
-        // mainPane.setCenter(view); //nullpointerexception
-        
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("term1.fxml"));
-        } catch (IOException e) {
-            System.out.println("Failed");
-        }
-        
-        System.out.println(root);
-        if (borderPane== null){
-            System.out.println("borderPane is null");
-        }
-        borderPane.setCenter(root);
-
-        // try {
-        //     FXMLLoader loader = new FXMLLoader(getClass().getResource("UIView.fxml"));
-        //     // secondUIController controller = new secondUIController(primaryStage);
-        //     // loader.setController(controller);
-        //     Parent secondPane = loader.load();
-        //     mainPane.setCenter(secondPane);
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
+        getTermPage("term1"); // 303030
     }
 
     @FXML
     public void handleTerm2(ActionEvent event) throws IOException {
         System.out.println("Term 2 pressed");
+        getTermPage("term2"); // 403f30
     }
 
     @FXML
     public void handleTerm3(ActionEvent event) throws IOException {
         System.out.println("Term 3 pressed");
+        getTermPage("term3"); // 404a40
     }
 
     @FXML
@@ -76,18 +53,19 @@ public class UIController {
         System.out.println("Add new term pressed");
     }
 
-    // private Pane getTermPage(String filename) throws IOException {
-    //     Pane view = null;
+    private void getTermPage(String filename) throws IOException {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(filename + ".fxml"));
+        } catch (IOException e) {
+            System.out.println("Failed");
+        }
+        
+        System.out.println(root);
+        if (borderPane == null){
+            System.out.println("borderPane is null");
+        }
 
-    //     URL fileURL = getClass().getClassLoader().getResource("fxml/" + filename + ".fxml");
-    //     System.out.println(fileURL);
-    //     // // SecondUIController controller =  new SecondUIController();
-    //     // // loader.setController(controller);
-    //     // // Parent secondUIRoot = loader.load();
-    //     // // Scene secondUIScene = new Scene(secondUIRoot);
-    //     // view = new FXMLLoader().load(fileURL);
-
-    //     view = FXMLLoader.load(fileURL);
-    //     return view;
-    // }
+        borderPane.setCenter(root);
+    }
 }
