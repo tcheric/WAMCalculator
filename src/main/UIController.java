@@ -1,11 +1,93 @@
 package src.main;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class UIController {
-    private Stage primaryStage;
 
-    public UIController(Stage stage){
-        this.primaryStage = stage;
+    @FXML
+    private BorderPane borderPane;
+
+    @FXML
+    private Button addNewTerm;
+
+    @FXML
+    private Button term1;
+
+    @FXML
+    private Button term2;
+
+    @FXML
+    private Button term3;
+
+    @FXML
+    public void handleTerm1(ActionEvent event) throws IOException {
+        System.out.println("Term 1 pressed");
+        // // Pane view = getTermPage("term1");
+        // Pane view = FXMLLoader.load(getClass().getResource("fxml/term1.fxml"));
+        // mainPane.setCenter(view); //nullpointerexception
+        
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("term1.fxml"));
+        } catch (IOException e) {
+            System.out.println("Failed");
+        }
+        
+        System.out.println(root);
+        if (borderPane== null){
+            System.out.println("borderPane is null");
+        }
+        borderPane.setCenter(root);
+
+        // try {
+        //     FXMLLoader loader = new FXMLLoader(getClass().getResource("UIView.fxml"));
+        //     // secondUIController controller = new secondUIController(primaryStage);
+        //     // loader.setController(controller);
+        //     Parent secondPane = loader.load();
+        //     mainPane.setCenter(secondPane);
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
     }
+
+    @FXML
+    public void handleTerm2(ActionEvent event) throws IOException {
+        System.out.println("Term 2 pressed");
+    }
+
+    @FXML
+    public void handleTerm3(ActionEvent event) throws IOException {
+        System.out.println("Term 3 pressed");
+    }
+
+    @FXML
+    public void handleAddNewTerm(ActionEvent event) throws IOException {
+        System.out.println("Add new term pressed");
+    }
+
+    // private Pane getTermPage(String filename) throws IOException {
+    //     Pane view = null;
+
+    //     URL fileURL = getClass().getClassLoader().getResource("fxml/" + filename + ".fxml");
+    //     System.out.println(fileURL);
+    //     // // SecondUIController controller =  new SecondUIController();
+    //     // // loader.setController(controller);
+    //     // // Parent secondUIRoot = loader.load();
+    //     // // Scene secondUIScene = new Scene(secondUIRoot);
+    //     // view = new FXMLLoader().load(fileURL);
+
+    //     view = FXMLLoader.load(fileURL);
+    //     return view;
+    // }
 }
