@@ -61,7 +61,7 @@ public class UIController {
             System.out.println("Failed");
         }
         
-        System.out.println(root);
+        // System.out.println(root);    
         if (borderPane == null){
             System.out.println("borderPane is null");
         }
