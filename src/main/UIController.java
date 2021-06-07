@@ -1,19 +1,18 @@
 package src.main;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+
 
 public class UIController {
+    Integer termNumber = Integer.valueOf(1);
 
     @FXML
     private BorderPane borderPane;
@@ -29,6 +28,9 @@ public class UIController {
 
     @FXML
     private Button term3;
+
+    @FXML
+    private VBox termVBox;
 
     @FXML
     public void handleTerm1(ActionEvent event) throws IOException {
@@ -50,7 +52,26 @@ public class UIController {
 
     @FXML
     public void handleAddNewTerm(ActionEvent event) throws IOException {
+        String termNoString = termNumber.toString();
         System.out.println("Add new term pressed");
+        Button newButton = new Button();
+        newButton.setPrefWidth(140);
+        newButton.setPrefHeight(62.5);
+        newButton.setText("Term " + termNoString);
+        newButton.setId("term" + termNoString);
+        newButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                System.out.println("Term " + termNoString + " pressed");
+                try {
+                    getTermPage("term" + termNoString);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        termNumber++;
+        termVBox.getChildren().add(newButton);
+        System.out.println("SUCCESS");
     }
 
     private void getTermPage(String filename) throws IOException {

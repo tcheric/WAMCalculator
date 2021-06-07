@@ -10,7 +10,8 @@ public class ApplicationTest {
     // Make interface
     Interface testInterface = new Interface();
     // Use interface to make studentRecord
-    StudentRecord testRecord = testInterface.newRecord();
+    // StudentRecord testRecord = testInterface.newRecord();
+    testInterface.newRecord();
     // Use interface to make term
     Term newTerm = testInterface.newTerm("21T1");
     // Use interface to add courses to term
