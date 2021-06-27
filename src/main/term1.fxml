@@ -14,11 +14,9 @@
       <Pane prefHeight="500.0" prefWidth="140.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutY="438.0" mnemonicParsing="false" prefHeight="62.5" prefWidth="140.0" style="-fx-background-color: #F5F5F5; -fx-border-width: 1; -fx-border-color: #202020;" text="Add New Course" />
-            <VBox prefHeight="437.5" prefWidth="140.0" style="-fx-background-color: #202020;">
+            <VBox fx:id="term1VBox" prefHeight="437.5" prefWidth="140.0" style="-fx-background-color: #202020;">
                <children>
                   <Button mnemonicParsing="false" prefHeight="62.5" prefWidth="140.0" style="-fx-background-color: #F5F5F5; -fx-border-width: 1; -fx-border-color: #202020;" text="Course 1" />
-                  <Button mnemonicParsing="false" prefHeight="62.5" prefWidth="140.0" style="-fx-background-color: #F5F5F5; -fx-border-width: 1; -fx-border-color: #202020;" text="Course 2" />
-                  <Button mnemonicParsing="false" prefHeight="62.5" prefWidth="140.0" style="-fx-background-color: #F5F5F5; -fx-border-width: 1; -fx-border-color: #202020;" text="Course 3" />
                </children>
             </VBox>
          </children>

@@ -12,7 +12,9 @@ import javafx.scene.layout.VBox;
 
 
 public class UIController {
-    Integer termNumber = Integer.valueOf(1);
+    Integer termNumber = Integer.valueOf(2);
+    Integer courseNumber = Integer.valueOf(2);
+    String currentTermPage;
 
     @FXML
     private BorderPane borderPane;
@@ -32,6 +34,8 @@ public class UIController {
     @FXML
     private VBox termVBox;
 
+    // TERM STUFF
+
     @FXML
     public void handleTerm1(ActionEvent event) throws IOException {
         System.out.println("Term 1 pressed");
@@ -44,7 +48,7 @@ public class UIController {
         getTermPage("term2"); // 403f30
     }
 
-    @FXML
+    @FXML   
     public void handleTerm3(ActionEvent event) throws IOException {
         System.out.println("Term 3 pressed");
         getTermPage("term3"); // 404a40
@@ -82,11 +86,47 @@ public class UIController {
             System.out.println("Failed");
         }
         
+        // Add nested controller in here??
+        // termUIController termUIController = new termUIController(args);
+
         // System.out.println(root);    
         if (borderPane == null){
             System.out.println("borderPane is null");
         }
-
+        currentTermPage = filename;
         borderPane.setCenter(root);
+    }
+
+    // COURSE STUFF
+    @FXML
+    public void handleAddNewCourse(ActionEvent event) throws IOException {
+        String courseNoString = courseNumber.toString();
+        System.out.println("Add new course pressed");
+        Button newButton = new Button();
+        newButton.setPrefWidth(140);
+        newButton.setPrefHeight(62.5);
+        newButton.setText("Course " + courseNoString);
+        newButton.setId("course" + courseNoString);
+        // newButton.setOnAction(new EventHandler<ActionEvent>() {
+        //     @Override public void handle(ActionEvent e) {
+        //         System.out.println("Course " + courseNoString + " pressed");
+        //         try {
+        //             getTermPage("course" + courseNoString);
+        //         } catch (IOException e1) {
+        //             e1.printStackTrace();
+        //         }
+        //     }
+        // });
+        courseNumber++;
+        // if (currentTermPage.equals("term1")){
+        //     term1VBox.getChildren().add(newButton);
+        // } else if (currentTermPage.equals("term2")){
+        //     term2VBox.getChildren().add(newButton);
+        // } else if (currentTermPage.equals("term3")){
+        //     term3VBox.getChildren().add(newButton);
+        // } else {
+        //     System.out.println("Couldn't determine current term page");
+        // }
+        System.out.println("SUCCESS");
     }
 }
