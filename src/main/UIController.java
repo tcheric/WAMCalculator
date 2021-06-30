@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 
 public class UIController {
     Integer termNumber = Integer.valueOf(2);
-    Integer courseNumber = Integer.valueOf(2);
+    
     String currentTermPage;
 
     @FXML
@@ -25,16 +25,14 @@ public class UIController {
     @FXML
     private Button term1;
 
-    @FXML
-    private Button term2;
+    // @FXML
+    // private Button term2;
 
-    @FXML
-    private Button term3;
+    // @FXML
+    // private Button term3;
 
     @FXML
     private VBox termVBox;
-
-    // TERM STUFF
 
     @FXML
     public void handleTerm1(ActionEvent event) throws IOException {
@@ -81,13 +79,16 @@ public class UIController {
     private void getTermPage(String filename) throws IOException {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource(filename + ".fxml"));
+            // root = FXMLLoader.load(getClass().getResource(filename + ".fxml"));
+            FXMLLoader termUILoader = new FXMLLoader(getClass().getResource(filename + ".fxml"));
+            root = termUILoader.load();
+            // Add nested controller in here??
+            termUIController termUIController = new termUIController();
+            termUILoader.setController(termUIController);
         } catch (IOException e) {
             System.out.println("Failed");
         }
-        
-        // Add nested controller in here??
-        // termUIController termUIController = new termUIController(args);
+
 
         // System.out.println(root);    
         if (borderPane == null){
@@ -118,15 +119,6 @@ public class UIController {
         //     }
         // });
         courseNumber++;
-        // if (currentTermPage.equals("term1")){
-        //     term1VBox.getChildren().add(newButton);
-        // } else if (currentTermPage.equals("term2")){
-        //     term2VBox.getChildren().add(newButton);
-        // } else if (currentTermPage.equals("term3")){
-        //     term3VBox.getChildren().add(newButton);
-        // } else {
-        //     System.out.println("Couldn't determine current term page");
-        // }
         System.out.println("SUCCESS");
     }
 }
